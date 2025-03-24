@@ -1,0 +1,14 @@
+version: '3.8'
+
+services :
+  producer :
+    build: ./producer
+    ports:
+      - '8079:8079'
+
+  consumer :
+    build: ./consumer
+    ports:
+      - '8081:8081'
+    depends_on:
+      - producer
